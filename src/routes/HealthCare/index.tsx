@@ -1,7 +1,5 @@
 const HealthCare = () => {
-  return (
-    <div>HealthCare</div>
-  )
+  return <div>HealthCare</div>
 }
 
-export default HealthCare 
+export default HealthCare
