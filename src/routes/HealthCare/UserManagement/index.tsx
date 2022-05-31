@@ -1,9 +1,8 @@
 import { useEffect } from 'react'
-import data from 'assets/json/res.json'
+import data from 'assets/json/response.json'
 
 import { IResultMap } from 'types/health'
 import Card from './Card'
-import Tag from './Tag'
 
 const { healthTagList, healthScoreList, userInfo, wxcResultMap } = data
 
@@ -18,8 +17,7 @@ const UserManagement = () => {
   return (
     <div>
       <p>HealthCare</p>
-      <Tag tagTitle='#유산소운동' tagColor='highlight' />
-      <Tag tagTitle='#체중감량' tagColor='normal' />
+      <Card />
     </div>
   )
 }
