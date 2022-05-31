@@ -11,18 +11,17 @@ import { getResultMapData, splitComma } from 'utils/healthDataUtil'
 
 const UserManagement = () => {
   const [resultMapDatas] = useState<string[]>(getResultMapData())
-  const [subject, setSubject] = useState<string | string[]>('')
-  const [content, setContent] = useState<string | string[]>('')
+  const [subject, setSubject] = useState<string>('')
+  const [content, setContent] = useState<string[]>([])
 
-  useEffect(() => {
-    const { subString, contentArr } = splitComma(resultMapDatas[1].split(' - '))
-    setSubject(subString)
-    setContent(contentArr)
-  }, [])
   return (
     <div>
       <p>HealthCare</p>
-      <Card subject={resultMapDatas[1].split(' - ')[0].trim()} content={resultMapDatas[1].split(' - ')[1]} />
+      {resultMapDatas.map((item) => {
+        const splitData = item.split(' - ')
+        const { subString, contentArr } = splitComma(splitData)
+        return <Card key={subString} subject={subString} content={contentArr} />
+      })}
     </div>
   )
 }

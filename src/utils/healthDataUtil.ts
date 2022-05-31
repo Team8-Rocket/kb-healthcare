@@ -34,6 +34,12 @@ export const getResultMapData = () => {
 
 export const splitComma = (mapData: string[]) => {
   const subString: string = mapData[0]
-  const contentArr: string[] = mapData.slice(1)
+  const contentArr = mapData.slice(1).reduce((acc: string[], cur) => {
+    const result = cur.split('. ')
+    for (let i = 0; i < result.length; i += 1) {
+      if (result[i] !== '') acc.push(`${result[i].replace('.', '')}`)
+    }
+    return acc
+  }, [])
   return { subString, contentArr }
 }
