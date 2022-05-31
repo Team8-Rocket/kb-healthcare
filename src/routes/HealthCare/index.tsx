@@ -1,7 +1,11 @@
+import Main from './Main'
+
 const HealthCare = () => {
   return (
-    <div>HealthCare</div>
+    <div>
+      <Main />
+    </div>
   )
 }
 
-export default HealthCare 
+export default HealthCare
