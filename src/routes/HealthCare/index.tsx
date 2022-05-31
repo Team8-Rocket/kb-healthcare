@@ -1,5 +1,19 @@
+import UserManagement from './UserManagement'
+
 const HealthCare = () => {
-  return <div>HealthCare</div>
+  return (
+    <div>
+      <div>
+        <div>
+          <div />
+          <div>
+            <div />
+          </div>
+        </div>
+      </div>
+      <UserManagement />
+    </div>
+  )
 }
 
 export default HealthCare
