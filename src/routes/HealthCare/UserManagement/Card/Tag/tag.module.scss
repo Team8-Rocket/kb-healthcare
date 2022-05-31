@@ -1,0 +1,23 @@
+@use '/src/styles/constants/colors';
+
+.tagContainer {
+  width: 120px;
+  height: 30px;
+  font-weight: bold;
+  line-height: 30px;
+  color: colors.$TAG_TITLE;
+  text-align: center;
+  border-radius: 10px;
+
+  &.highlightTag {
+    background-color: colors.$TAG_MAIN;
+  }
+
+  &.normalTag {
+    background-color: colors.$TAG_SUB;
+  }
+
+  // & + & {
+  //   margin-left: 5px;
+  // }
+}
