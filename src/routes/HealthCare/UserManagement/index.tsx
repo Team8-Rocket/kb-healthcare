@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import data from 'assets/json/res.json'
+import data from 'assets/json/response.json'
 
 import { IResultMap } from 'types/health'
 import Card from './Card'

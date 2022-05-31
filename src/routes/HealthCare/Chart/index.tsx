@@ -1,4 +1,10 @@
+import PredictionCost from './PredictionCost'
+
 const Chart = () => {
-  return <h1>chart</h1>
+  return (
+    <div>
+      <PredictionCost />
+    </div>
+  )
 }
 export default Chart
