@@ -1,7 +1,7 @@
 import { useState } from 'react'
 
 import Card from 'routes/HealthCare/UserManagement/Card'
-import { getResultMapBoj, getParamMap, splitComma } from 'utils/healthDataUtil'
+import { getResultMapBoj, getParamMap, splitCardContent } from 'utils/healthDataUtil'
 
 import styles from './Card/card.module.scss'
 
@@ -17,7 +17,7 @@ const UserManagement = () => {
       {resultMapDatas.map((item, index) => {
         const cardIndex = index
         const splitData = item.value.split(' - ')
-        const { subString, contentArr } = splitComma(splitData)
+        const { subString, contentArr } = splitCardContent(splitData)
         return (
           <Card
             key={`${subString}${cardIndex}`}

@@ -1,6 +1,6 @@
 import data from 'assets/json/response.json'
 
-const { healthTagList, healthScoreList, userInfo, wxcResultMap } = data
+const { healthTagList, wxcResultMap } = data
 
 interface ITagList {
   [key: string]: string[]
@@ -54,7 +54,7 @@ export const getParamMap = (param: string) => {
   return paramMap
 }
 
-export const splitComma = (mapData: string[]) => {
+export const splitCardContent = (mapData: string[]) => {
   const subString: string = mapData[0]
   const contentArr = mapData.slice(1).reduce((acc: string[], cur) => {
     const result = cur.split('. ')
