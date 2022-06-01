@@ -1,10 +1,10 @@
-import TenYearChart from './TenYearChart/TenYearChart'
 import PredictionCost from './PredictionCost'
 import { VictoryAxis, VictoryBar, VictoryChart, VictoryLine, VictoryScatter } from 'victory'
 
 import json from 'assets/json/response.json'
 import styles from './chart.module.scss'
 import { CallbackArgs } from 'victory-core'
+import HealthAverageChart from './HealthAverageChart/HealthAverageChart'
 
 const WHSCORE = json.wxcResultMap.wHscore
 const WHSCORYDY = json.wxcResultMap.wHscoreDy.replace(/\[|\]/g, '').split(', ').at(-1)
@@ -37,7 +37,7 @@ const Chart = () => {
 
   return (
     <div className={styles.comparativeChart}>
-      <TenYearChart />
+      <HealthAverageChart />
       <PredictionCost />
       <h1>나의 10년 후 건강 예측</h1>
       <div className={styles.descripton}>
