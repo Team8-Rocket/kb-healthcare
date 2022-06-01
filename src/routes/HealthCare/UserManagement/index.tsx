@@ -1,4 +1,5 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
+
 import data from 'assets/json/response.json'
 
 import { IResultMap } from 'types/health'

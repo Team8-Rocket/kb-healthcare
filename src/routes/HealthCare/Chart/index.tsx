@@ -1,4 +1,5 @@
 import TenYearChart from './TenYearChart/TenYearChart'
+import PredictionCost from './PredictionCost'
 import { VictoryAxis, VictoryBar, VictoryChart, VictoryLine, VictoryScatter } from 'victory'
 
 import json from 'assets/json/response.json'
@@ -37,6 +38,7 @@ const Chart = () => {
   return (
     <div className={styles.comparativeChart}>
       <TenYearChart />
+      <PredictionCost />
       <h1>나의 10년 후 건강 예측</h1>
       <div className={styles.descripton}>
         <div>10년 후 예상 건강점수는</div>
@@ -87,5 +89,4 @@ const Chart = () => {
     </div>
   )
 }
-
 export default Chart
