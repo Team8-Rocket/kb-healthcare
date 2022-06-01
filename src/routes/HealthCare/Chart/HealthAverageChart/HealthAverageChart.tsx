@@ -1,12 +1,12 @@
 import { VictoryAxis, VictoryBar, VictoryChart, VictoryGroup, VictoryLine, VictoryScatter } from 'victory'
 import { CallbackArgs } from 'victory-core'
 
-import styles from './tenYearChart.module.scss'
+import styles from './healthAverageChart.module.scss'
 import { cx } from 'styles'
 import { CHART_STYLE } from './chartStyle'
 import { getHealthData, setColor } from 'utils/healthDataConvertor'
 
-const TenYearChart = () => {
+const HealthAverageChart = () => {
   const { message, diffScore, calcPercent, healthData } = getHealthData()
 
   // const isYears = false
@@ -22,7 +22,7 @@ const TenYearChart = () => {
         <p className={styles.message}>
           {message}
           <br />
-          <span>{diffScore}점 높아요</span>
+          <mark>{diffScore}점 높아요</mark>
         </p>
 
         {/* content의 height 50% 배경색 칠하는 것 좋은 방법 고민 */}
@@ -68,4 +68,4 @@ const TenYearChart = () => {
   )
 }
 
-export default TenYearChart
+export default HealthAverageChart
