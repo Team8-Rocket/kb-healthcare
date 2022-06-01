@@ -25,10 +25,10 @@ const CompareScoreChart = () => {
       <p className={styles.description}>
         10년 후 예상 건강점수는
         <br />
-        {scoreDifference === 0 && <span>현재와 같아요.</span>}
+        {scoreDifference === 0 && '현재와 같아요.'}
         {scoreDifference !== 0 && (
-          <span>
-            현재보다{' '}
+          <>
+            {'현재보다 '}
             <mark
               className={cx(
                 styles.highlight,
@@ -38,7 +38,7 @@ const CompareScoreChart = () => {
             >
               {scoreDifference}점 {comparativeIndicator.text}
             </mark>
-          </span>
+          </>
         )}
       </p>
       <VictoryChart domainPadding={{ x: 50 }}>
