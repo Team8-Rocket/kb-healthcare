@@ -1,6 +1,5 @@
 import styles from './tag.module.scss'
 import cx from 'classnames'
-// import { cx } from 'styles'
 
 interface Props {
   tagTitle: string

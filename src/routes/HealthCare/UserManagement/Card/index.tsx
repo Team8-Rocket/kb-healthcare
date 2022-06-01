@@ -6,18 +6,6 @@ import { getParamMap, hasLetterStand, getTagList, getNormalText } from 'utils/he
 
 import styles from './card.module.scss'
 
-// interface Props {
-//   color: string
-//   icon: FunctionComponent<SVGProps<SVGSVGElement>>
-//   titleNumber: string
-//   title: string
-//   summary: string
-//   boldSummary: string
-//   normalStandard?: string
-//   tagText: string[]
-//   contents: string[]
-// }
-
 interface Props {
   subject: string
   content: string | string[]
