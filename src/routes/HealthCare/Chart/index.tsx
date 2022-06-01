@@ -1,9 +1,9 @@
-import HealthChart from './10yearChart/HealthChart'
+import TenYearChart from './TenYearChart/TenYearChart'
 
 const Chart = () => {
   return (
     <div>
-      <HealthChart />
+      <TenYearChart />
     </div>
   )
 }
