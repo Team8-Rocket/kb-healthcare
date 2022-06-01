@@ -9,11 +9,10 @@ import TotalChart from './Main/TotalChart'
 const HealthCare = () => {
   return (
     <div>
-      {/* <Chart /> */}
-      {/* <UserManagement /> */}
       <div className={styles.kbWrap}>
         <Header />
         <Main />
+        <Chart />
         <UserManagement />
       </div>
     </div>
