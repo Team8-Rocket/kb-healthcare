@@ -1,27 +1,25 @@
-import { useEffect, useState } from 'react'
-import data from 'assets/json/response.json'
+import { useEffect } from 'react'
+import data from 'assets/json/res.json'
 
 import { IResultMap } from 'types/health'
-import Card from 'routes/HealthCare/UserManagement/Card'
-import { getResultMapData, splitComma } from 'utils/healthDataUtil'
+import Card from './Card'
+import Tag from './Tag'
+
+const { healthTagList, healthScoreList, userInfo, wxcResultMap } = data
 
 // interface IHealthManageData {
 //   [key: string]: string
 // }
-
 const UserManagement = () => {
-  const [resultMapDatas] = useState<string[]>(getResultMapData())
-  const [subject, setSubject] = useState<string>('')
-  const [content, setContent] = useState<string[]>([])
-
+  useEffect(() => {
+    console.log(wxcResultMap)
+    const { boj, paramMap } = wxcResultMap
+  })
   return (
     <div>
       <p>HealthCare</p>
-      {resultMapDatas.map((item) => {
-        const splitData = item.split(' - ')
-        const { subString, contentArr } = splitComma(splitData)
-        return <Card key={subString} subject={subString} content={contentArr} />
-      })}
+      <Tag tagTitle='#유산소운동' tagColor='highlight' />
+      <Tag tagTitle='#체중감량' tagColor='normal' />
     </div>
   )
 }
