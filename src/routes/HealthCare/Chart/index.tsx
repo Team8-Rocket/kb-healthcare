@@ -37,7 +37,6 @@ const Chart = () => {
 
   return (
     <div className={styles.comparativeChart}>
-
       <TenYearChart />
       <PredictionCost />
       <h1>나의 10년 후 건강 예측</h1>
