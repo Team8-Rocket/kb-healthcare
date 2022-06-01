@@ -3,6 +3,8 @@ import { useState } from 'react'
 import Card from 'routes/HealthCare/UserManagement/Card'
 import { getResultMapBoj, getParamMap, splitComma } from 'utils/healthDataUtil'
 
+import styles from './Card/card.module.scss'
+
 // interface IHealthManageData {
 //   [key: string]: string
 // }
@@ -11,8 +13,7 @@ const UserManagement = () => {
   const [resultMapDatas] = useState<{ subject: string; value: string; param: string }[]>(getResultMapBoj())
 
   return (
-    <div>
-      <p>HealthCare</p>
+    <div className={styles.cardSection}>
       {resultMapDatas.map((item, index) => {
         const cardIndex = index
         const splitData = item.value.split(' - ')

@@ -8,17 +8,11 @@
   line-height: 28px;
   color: colors.$TAG_TITLE;
   text-align: center;
+  background-color: colors.$TAG_MAIN;
   border-radius: 15px;
-
-  &.highlightTag {
-    background-color: colors.$TAG_MAIN;
-  }
-
-  &.normalTag {
-    background-color: colors.$TAG_SUB;
-  }
 
   & + & {
     margin-left: 6px;
+    background-color: colors.$TAG_SUB;
   }
 }

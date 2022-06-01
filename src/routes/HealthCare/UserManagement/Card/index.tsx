@@ -2,11 +2,9 @@ import { useState } from 'react'
 
 import Tag from './Tag'
 import Icon from './Icon'
-import { getParamMap, hasLetterStand } from 'utils/healthDataUtil'
+import { getParamMap, hasLetterStand, getTagList } from 'utils/healthDataUtil'
 
 import styles from './card.module.scss'
-
-const name = 'resMBI'
 
 // interface Props {
 //   color: string
@@ -30,30 +28,37 @@ interface Props {
 
 const Card = ({ subject, result, content, paramName, cardIndex }: Props) => {
   const [param] = useState(getParamMap(paramName))
+  const [tagList] = useState(getTagList(paramName))
   return (
     <div className={styles.cardContainer}>
       <div className={styles.cardIndex}>
-        <p>0{cardIndex + 1}</p>
+        <div>
+          <p>0{cardIndex + 1}</p>
+        </div>
         <div>
           <Icon iconName={`Icon${cardIndex + 1}`} />
         </div>
       </div>
       <div className={styles.cardHeader}>
         <h2>{subject}</h2>
-        {param && (
+        <div className={styles.cardDescription}>
+          {param && (
+            <p>
+              {subject}
+              {hasLetterStand(subject)} {param.value} {param.unit}
+            </p>
+          )}
           <p>
-            {subject}
-            {hasLetterStand(subject)} {param.value} {param.unit}
+            <strong>{result}</strong> 입니다.
           </p>
-        )}
-        <p>
-          <strong>{result}</strong> 입니다.
-        </p>
+        </div>
         <span>정상: 200mg/dL 이하</span>
       </div>
       <div className={styles.cardTag}>
-        <Tag tagTitle='#유산소운동' tagColor='highlight' />
-        <Tag tagTitle='#체중감량' tagColor='normal' />
+        {tagList.map((item, index) => {
+          const tagListIndex = index
+          return <Tag key={`index-${item}-${tagListIndex}`} tagTitle={`${item}`} />
+        })}
       </div>
       <div className={styles.cardContents}>
         <h3>이렇게 관리해 보세요!</h3>

@@ -1,5 +1,17 @@
 @use '/src/styles/constants/colors';
 
+$colors: (1: #3cce3c, 2: #c63de8, 3: #738dfc, 4: #529afc,5: #c63de8, 6: #ffb850, 7: #f9b4b4, 8: #75d3c7,);
+
+@each $key, $color in $colors {
+  .cardSection .cardContainer:nth-child(#{$key}) h2 {
+    color: $color;
+  }
+
+  .cardSection .cardContainer:nth-child(#{$key}) h3 {
+    color: $color;
+  }
+}
+
 .cardContainer {
   width: 375px;
   padding: 30px;
@@ -17,7 +29,7 @@
       font-size: 30px;
       font-style: italic;
       font-weight: bold;
-      color: #595959;
+      color: colors.$TAG_TITLE;
     }
   }
 
@@ -25,18 +37,21 @@
     h2 {
       font-size: 20px;
       font-weight: bold;
-      color: #738dfc; //받아온 컬러
+      // color: #738dfc; //받아온 컬러
     }
 
-    p {
+    .cardDescription {
       margin: 15px 0;
-      line-height: 25px;
 
-      strong {
-        font-weight: bold;
-        color: #303030;
+      p {
+        line-height: 25px;
+
+        strong {
+          font-weight: bold;
+          color: #303030;
+        }
+        color: #393939;
       }
-      color: #393939;
     }
 
     span {
@@ -57,7 +72,7 @@
     h3 {
       margin: 30px 0 0;
       font-weight: bold;
-      color: #738dfc; //받아온 컬러
+      // color: #738dfc; //받아온 컬러
     }
 
     li {

@@ -2,6 +2,20 @@ import data from 'assets/json/response.json'
 
 const { healthTagList, healthScoreList, userInfo, wxcResultMap } = data
 
+interface ITagList {
+  [key: string]: string[]
+}
+
+const tranformData = () => {
+  const newData: ITagList = {}
+  healthTagList.forEach((item) => {
+    newData[item.tagId] = [item.tag1, item.tag2, item.tag3]
+  })
+  return newData
+}
+
+const healthTags = tranformData()
+
 export const getResultMapBoj = () => {
   const { drnkQty, exerciQty, resBMI, resBloodPressure, resFastingBloodSuger, resGFR, resTotalCholesterol, smkQty } =
     wxcResultMap.boj
@@ -50,4 +64,14 @@ export const splitComma = (mapData: string[]) => {
     return acc
   }, [])
   return { subString, contentArr }
+}
+
+// 1. 카드를 구별할 수 있는 식별자가 있는가?
+// 2. 있으면 식별자 가져오고, 없으면 만들어서 가져온다
+// 3. 식별자를 인자로 받는다
+// 4. 데이터에서 찾는다 -> return
+
+export const getTagList = (param: string) => {
+  if (param === 'resTotalCholesterol') return healthTags.resLDLCholesterol
+  return healthTags[param]
 }
