@@ -1,37 +1,23 @@
 import { VictoryAxis, VictoryBar, VictoryChart, VictoryGroup, VictoryLine, VictoryScatter } from 'victory'
 import cx from 'classnames'
 
-import json from 'assets/json/response.json'
-
 import styles from './compareScoreChart.module.scss'
-import { CallbackArgs } from 'victory-core'
-
-const WHSCORE = json.wxcResultMap.wHscore
-const WHSCORYDY = json.wxcResultMap.wHscoreDy.replace(/\[|\]/g, '').split(', ').at(-1)
-
-interface Score {
-  indicator: string
-  score: number
-}
-
-const getIndicatorType = (scoreDifference: number) => {
-  if (scoreDifference < 0) return 'more'
-  if (scoreDifference > 0) return 'less'
-  return 'same'
-}
+import chartData from './jsonToChartData'
 
 const CompareScoreChart = () => {
-  const chartData: Score[] = [
-    { indicator: '나', score: Number(WHSCORE) },
-    { indicator: '10년 후', score: Number(WHSCORYDY) },
-  ]
   const scoreDifference = chartData[0].score - chartData[1].score
-  // TODO: 색상 hex로
+
+  const getIndicatorType = () => {
+    if (scoreDifference < 0) return 'more'
+    if (scoreDifference > 0) return 'less'
+    return 'same'
+  }
+
   const comparativeIndicator = {
-    less: { text: '낮아요', color: 'red' },
-    same: { text: '같아요', color: 'black' },
-    more: { text: '높아요', color: 'blue' },
-  }[getIndicatorType(scoreDifference)]
+    less: { text: '낮아요' },
+    same: { text: '같아요' },
+    more: { text: '높아요' },
+  }[getIndicatorType()]
 
   return (
     <div className={styles.comparativeChart}>
