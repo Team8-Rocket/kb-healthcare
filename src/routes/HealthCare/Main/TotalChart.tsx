@@ -28,6 +28,7 @@ const HEALTH_SCORE_LIST = DATAJSON.healthScoreList
 
 const TotalChart = () => {
   const [score, setScore] = useState(0)
+  const [message, setMessage] = useState('')
   const [healthScore, setHealthScore] = useState<IScore[]>()
 
   useEffect(() => {
@@ -35,10 +36,13 @@ const TotalChart = () => {
       return { x: dayjs(item.SUBMIT_DATE).format('YYYY'), y: Number(item.SCORE) }
     })
     setHealthScore(data)
-
-    if (healthScore) setScore(healthScore[healthScore.length - 1].y - healthScore[healthScore.length - 2].y)
-    // if (healthScore) setScore(healthScore.at(-1)?.y - healthScore[healthScore.length - 2].y)
   }, [])
+
+  useEffect(() => {
+    if (healthScore) setScore(healthScore[healthScore.length - 1].y - healthScore[healthScore.length - 2].y)
+    if (score > 0) return setMessage(`${score}점 높아졌어요.`)
+    return setMessage(`${Math.abs(score)}점 낮아졌어요.`)
+  }, [healthScore, score])
 
   if (!healthScore) return null
 
@@ -47,7 +51,7 @@ const TotalChart = () => {
       <h3>
         건강 점수는
         <br />
-        총점이 지난해 보다 <mark>{score}점 낮아졌어요.</mark>
+        총점이 지난해 보다 <mark>{message}</mark>
       </h3>
       <div className={styles.chartWrapper}>
         <VictoryChart domainPadding={20}>
