@@ -1,8 +1,12 @@
+@use '/src/styles/constants/colors';
+
 .comparativeChart {
   display: flex;
   flex-direction: column;
+  margin: 0 16px;
 
   mark {
-    color: red;
+    color: colors.$RED;
+    background: colors.$WHITE;
   }
 }
