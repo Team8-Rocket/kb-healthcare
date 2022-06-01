@@ -15,8 +15,8 @@ interface Score {
 }
 
 const getIndicatorType = (scoreDifference: number) => {
-  if (scoreDifference < 0) return 'less'
-  if (scoreDifference > 0) return 'more'
+  if (scoreDifference < 0) return 'more'
+  if (scoreDifference > 0) return 'less'
   return 'same'
 }
 
@@ -46,8 +46,8 @@ const CompareScoreChart = () => {
             <mark
               className={cx(
                 styles.highlight,
-                { [styles.over]: scoreDifference > 0 },
-                { [styles.under]: scoreDifference < 0 }
+                { [styles.over]: scoreDifference < 0 },
+                { [styles.under]: scoreDifference > 0 }
               )}
             >
               {scoreDifference}점 {comparativeIndicator.text}
@@ -69,7 +69,6 @@ const CompareScoreChart = () => {
               data: { fill: ({ datum }) => (datum.indicator === '나' ? '#F9D548' : '#EF8A4E') },
               labels: { fontSize: 18 },
             }}
-            // barRatio={6}
             barWidth={70}
             cornerRadius={{ top: 8 }}
           />
