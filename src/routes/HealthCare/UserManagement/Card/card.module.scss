@@ -74,9 +74,14 @@ $COLORS: (1: #3cce3c, 2: #c63de8, 3: #738dfc, 4: #529afc,5: #c63de8, 6: #ffb850,
     }
 
     li {
-      margin: 20px 25px;
+      display: flex;
+      margin: 20px 0;
       line-height: 20px;
       color: colors.$GRAY3;
+
+      & > span {
+        padding: 0 6px 0 0;
+      }
     }
   }
 }

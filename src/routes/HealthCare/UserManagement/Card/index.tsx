@@ -2,7 +2,7 @@ import { useState } from 'react'
 
 import Tag from './Tag'
 import Icon from './Icon'
-import { getParamMap, hasLetterStand, getTagList } from 'utils/healthDataUtil'
+import { getParamMap, hasLetterStand, getTagList, getNormalText } from 'utils/healthDataUtil'
 
 import styles from './card.module.scss'
 
@@ -52,7 +52,7 @@ const Card = ({ subject, result, content, paramName, cardIndex }: Props) => {
             <strong>{result}</strong> 입니다.
           </p>
         </div>
-        <span>정상: 200mg/dL 이하</span>
+        <span>{getNormalText(paramName)}</span>
       </div>
       <div className={styles.cardTag}>
         {tagList.map((item, index) => {
@@ -65,10 +65,18 @@ const Card = ({ subject, result, content, paramName, cardIndex }: Props) => {
         <ul>
           {typeof content === 'object' ? (
             content.map((item) => {
-              return <li key={`index-${item}`}>☝🏼 {item}</li>
+              return (
+                <li key={`index-${item}`}>
+                  <span>☝🏼</span>
+                  <p>{item}</p>
+                </li>
+              )
             })
           ) : (
-            <li key={content}>☝🏼 {content}</li>
+            <li key={content}>
+              <span>☝🏼</span>
+              <p>{content}</p>
+            </li>
           )}
         </ul>
       </div>

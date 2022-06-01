@@ -66,12 +66,18 @@ export const splitComma = (mapData: string[]) => {
   return { subString, contentArr }
 }
 
-// 1. 카드를 구별할 수 있는 식별자가 있는가?
-// 2. 있으면 식별자 가져오고, 없으면 만들어서 가져온다
-// 3. 식별자를 인자로 받는다
-// 4. 데이터에서 찾는다 -> return
-
 export const getTagList = (param: string) => {
   if (param === 'resTotalCholesterol') return healthTags.resLDLCholesterol
   return healthTags[param]
+}
+
+export const getNormalText = (param: string) => {
+  const normalData = {
+    resBMI: '정상 : 18.5 ~ 22.9 kg/m²',
+    resBloodPressure: '정상 : 이완 60~79 / 수축 90~119 mmHg',
+    resTotalCholesterol: '정상 : 200mg/dL 이하',
+    resFastingBloodSuger: '정상 : 69~99 mg/dL',
+    resGFR: '정상 : 60 mL/min 이상',
+  }[param]
+  return normalData
 }
