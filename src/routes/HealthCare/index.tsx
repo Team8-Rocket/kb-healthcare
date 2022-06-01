@@ -11,11 +11,11 @@ const HealthCare = () => {
     <div>
       {/* <Chart /> */}
       {/* <UserManagement /> */}
-    <div className={styles.kbWrap}>
-      <Header />
-      <Main />
-      <UserManagement />
-
+      <div className={styles.kbWrap}>
+        <Header />
+        <Main />
+        <UserManagement />
+      </div>
     </div>
   )
 }
