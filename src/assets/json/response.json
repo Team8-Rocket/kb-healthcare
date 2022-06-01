@@ -14,7 +14,9 @@
     "ihd_peer": "37",
     "totalRate": "0.32",
     "his": "37",
-    "contribution": {
+
+    "contribution": { 
+
       "bloodPressure": {
         
       },
