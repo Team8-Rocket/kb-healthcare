@@ -1,0 +1,24 @@
+@use '/src/styles/constants/colors';
+
+.container {
+  margin-top: 50px;
+
+  .description {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .message {
+      line-height: 1.3;
+
+      span {
+        color: colors.$BLUE;
+      }
+    }
+
+    .percent {
+      font-weight: 700;
+      background-image: linear-gradient(#ffffff 50%, #ffd300 0%);
+    }
+  }
+}

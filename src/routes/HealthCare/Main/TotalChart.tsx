@@ -24,6 +24,7 @@ const colors = {
   bar: '#e7e7e7',
 }
 
+
 const HEALTH_SCORE_LIST = DATAJSON.healthScoreList
 
 const TotalChart = () => {
@@ -39,7 +40,7 @@ const TotalChart = () => {
     if (healthScore) setScore(healthScore[healthScore.length - 1].y - healthScore[healthScore.length - 2].y)
     // if (healthScore) setScore(healthScore.at(-1)?.y - healthScore[healthScore.length - 2].y)
   }, [])
-
+  
   if (!healthScore) return null
 
   return (
