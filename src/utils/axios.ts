@@ -18,7 +18,7 @@ const resolveResponse = (response: AxiosResponse): AxiosResponse => response
 
 const responseError = (error: AxiosError): Promise<never> => {
   // eslint-disable-next-line no-console
-  console.log(error)
+  console.log('responseError', error)
   return Promise.reject(error)
 }
 
