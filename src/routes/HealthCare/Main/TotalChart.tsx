@@ -95,10 +95,7 @@ const TotalChart = () => {
                 },
               }}
             />
-            <VictoryAxis
-              tickValues={healthScore.map((item) => item.x)}
-              // style={{ axis: { stroke: '#df6500' }, tickLabels: { fontSize: 50 } }}
-            />
+            <VictoryAxis tickValues={healthScore.map((item) => item.x)} />
           </VictoryGroup>
         </VictoryChart>
       </div>

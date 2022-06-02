@@ -31,6 +31,10 @@ export const getResultMapBoj = () => {
   ]
 }
 
+export const getHealthScore = () => {
+  return wxcResultMap.wMymaxHscore
+}
+
 export const hasLetterStand = (word: string) => {
   const lastLetter = word[word.length - 1]
   const uniCode = lastLetter.charCodeAt(0)
