@@ -1,16 +1,15 @@
-import { VictoryAnimation, VictoryLabel, VictoryPie } from 'victory'
+import { VictoryPie } from 'victory'
 import { InfoIcon } from 'assets/svgs/index'
 import styles from './circleChart.module.scss'
 import { useEffect, useState } from 'react'
 import DATA from '../../../assets/json/response.json'
-import { useMounted } from 'hooks'
 import dayjs from 'dayjs'
 
 const USER_INFO = DATA.userInfo
 
 const CircleChart = () => {
   const [yPercent, setYPercent] = useState<number>(0)
-  //    "healthScore": "875",  >> 87.5 >> 87.0 %
+
   useEffect(() => {
     const percent = (Number(USER_INFO.healthScore) / 1000) * 100
     setYPercent(Math.floor(percent))

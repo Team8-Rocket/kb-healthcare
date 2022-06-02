@@ -72,7 +72,6 @@ const TotalChart = () => {
               animate={{
                 onExit: {
                   duration: 500,
-
                   before: () => ({
                     _y: 0,
                     fill: 'orange',
@@ -95,10 +94,7 @@ const TotalChart = () => {
                 },
               }}
             />
-            <VictoryAxis
-              tickValues={healthScore.map((item) => item.x)}
-              // style={{ axis: { stroke: '#df6500' }, tickLabels: { fontSize: 50 } }}
-            />
+            <VictoryAxis tickValues={healthScore.map((item) => item.x)} />
           </VictoryGroup>
         </VictoryChart>
       </div>

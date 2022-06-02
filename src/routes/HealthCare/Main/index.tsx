@@ -1,5 +1,3 @@
-import React from 'react'
-import CircleChart from './CircleChart'
 import TotalChart from './TotalChart'
 import styles from './main.module.scss'
 import DATA from '../../../assets/json/response.json'
