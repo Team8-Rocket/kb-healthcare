@@ -1,4 +1,4 @@
-import { VictoryPie } from 'victory'
+import { VictoryAnimation, VictoryLabel, VictoryPie } from 'victory'
 import { InfoIcon } from 'assets/svgs/index'
 import styles from './circleChart.module.scss'
 import { useEffect, useState } from 'react'
@@ -9,7 +9,7 @@ import dayjs from 'dayjs'
 const USER_INFO = DATA.userInfo
 
 const CircleChart = () => {
-  const [yPercent, setYPercent] = useState<number>(80)
+  const [yPercent, setYPercent] = useState<number>(0)
   //    "healthScore": "875",  >> 87.5 >> 87.0 %
   useEffect(() => {
     const percent = (Number(USER_INFO.healthScore) / 1000) * 100
@@ -27,13 +27,15 @@ const CircleChart = () => {
           startAngle={-120}
           endAngle={120}
           height={280}
-          colorScale={['gold', 'lightgray']}
+          colorScale={['gold', '#eee']}
           innerRadius={75}
+          animate={{ duration: 1000 }}
           data={[
             { x: 1, y: yPercent, label: ' ' },
             { x: 2, y: 100 - yPercent, label: ' ' },
           ]}
         />
+
         <p className={styles.score}>
           {USER_INFO.healthScore}
           <span> 점</span>
