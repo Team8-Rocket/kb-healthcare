@@ -23,7 +23,11 @@ const PredictionCost = () => {
         현재보다 원 많아요
       </h3>
       <VictoryChart domainPadding={40} theme={VictoryTheme.material}>
-        <VictoryAxis tickValues={['나', '10년 후']} style={{ axis: { stroke: '#a4b0be' } }} domain={{ x: [0, 3] }} />
+        <VictoryAxis
+          tickValues={['나', '10년 후']}
+          style={{ axis: { stroke: '#a4b0be' }, tickLabels: { fontFamily: 'inherit' } }}
+          domain={{ x: [0, 3] }}
+        />
         <VictoryBar
           data={data}
           x='indicator'
@@ -40,6 +44,7 @@ const PredictionCost = () => {
           y='cost'
           labels={({ datum }) => `${datum.cost}`.replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ',')}
           labelComponent={<VictoryLabel dy={-15} />}
+          style={{ labels: { fontFamily: 'inherit' } }}
         />
         <VictoryScatter
           data={data}

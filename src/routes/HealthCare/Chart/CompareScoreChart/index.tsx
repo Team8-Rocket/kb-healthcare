@@ -44,7 +44,7 @@ const CompareScoreChart = () => {
       <VictoryChart domainPadding={{ x: 50 }}>
         <VictoryAxis
           tickValues={chartData.map((el) => el.indicator)}
-          style={{ axis: { display: 'none' }, tickLabels: { fontWeight: 700, fontSize: 20 } }}
+          style={{ axis: { display: 'none' }, tickLabels: { fontWeight: 700, fontSize: 20, fontFamily: 'inherit' } }}
         />
         <VictoryGroup data={chartData} x='indicator' y='score'>
           <VictoryBar
@@ -53,7 +53,7 @@ const CompareScoreChart = () => {
             labels={({ datum }) => `${datum.score}점`}
             style={{
               data: { fill: ({ datum }) => (datum.indicator === '나' ? '#F9D548' : '#EF8A4E') },
-              labels: { fontSize: 18 },
+              labels: { fontSize: 18, fontFamily: 'inherit' },
             }}
             barWidth={70}
             cornerRadius={{ top: 8 }}
