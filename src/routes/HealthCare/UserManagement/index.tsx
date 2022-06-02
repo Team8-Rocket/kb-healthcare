@@ -1,27 +1,29 @@
 import { useState } from 'react'
 
-import data from 'assets/json/response.json'
-
-import { IResultMap } from 'types/health'
 import Card from 'routes/HealthCare/UserManagement/Card'
-import { getResultMapData, splitComma } from 'utils/healthDataUtil'
+import { getResultMapBoj, splitCardContent } from 'utils/healthDataUtil'
 
-// interface IHealthManageData {
-//   [key: string]: string
-// }
+import styles from './Card/card.module.scss'
 
 const UserManagement = () => {
-  const [resultMapDatas] = useState<string[]>(getResultMapData())
-  const [subject, setSubject] = useState<string>('')
-  const [content, setContent] = useState<string[]>([])
+  const [resultMapData] = useState<{ subject: string; value: string; param: string }[]>(getResultMapBoj())
 
   return (
-    <div>
-      <p>HealthCare</p>
-      {resultMapDatas.map((item) => {
-        const splitData = item.split(' - ')
-        const { subString, contentArr } = splitComma(splitData)
-        return <Card key={subString} subject={subString} content={contentArr} />
+    <div className={styles.cardSection}>
+      {resultMapData.map((item, index) => {
+        const cardIndex = index
+        const splitData = item.value.split(' - ')
+        const { subString, contentArr } = splitCardContent(splitData)
+        return (
+          <Card
+            key={`${subString}${cardIndex}`}
+            subject={item.subject}
+            result={subString}
+            content={contentArr}
+            cardIndex={cardIndex}
+            paramName={item.param}
+          />
+        )
       })}
     </div>
   )
