@@ -1,11 +1,11 @@
-import TenYearChart from './TenYearChart/TenYearChart'
 import PredictionCost from './PredictionCost'
+import HealthAverageChart from './HealthAverageChart/HealthAverageChart'
 import CompareScoreChart from './CompareScoreChart'
 
 const Chart = () => {
   return (
     <>
-      <TenYearChart />
+      <HealthAverageChart />
       <CompareScoreChart />
       <PredictionCost />
     </>

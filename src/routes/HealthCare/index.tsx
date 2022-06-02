@@ -4,8 +4,6 @@ import Main from './Main'
 import Header from './Header/Header'
 import UserManagement from './UserManagement'
 
-import TotalChart from './Main/TotalChart'
-
 const HealthCare = () => {
   return (
     <div>
