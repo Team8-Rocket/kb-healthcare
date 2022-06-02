@@ -1,5 +1,5 @@
 import PredictionCost from './PredictionCost'
-import HealthAverageChart from './HealthAverageChart/HealthAverageChart'
+import HealthAverageChart from './HealthAverageChart'
 import CompareScoreChart from './CompareScoreChart'
 
 const Chart = () => {

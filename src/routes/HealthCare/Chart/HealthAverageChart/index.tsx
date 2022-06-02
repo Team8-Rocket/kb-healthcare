@@ -7,14 +7,7 @@ import { CHART_STYLE } from './chartStyle'
 import { getHealthData, setColor } from 'utils/healthDataConvertor'
 
 const HealthAverageChart = () => {
-  const { message, diffScore, calcPercent, healthData } = getHealthData()
-
-  // const isYears = false
-  // const chartHeight = isYears ? 250 : 300
-  // const barWidth = isYears ? 40 : 60
-  // const fontSize = isYears ? 16 : 20
-  // const scatterSize = isYears ? 4 : 6
-  // const barElseColor = isYears ? '#eeeeee' : '#999'
+  const { message, diffScore, diffMessage, calcPercent, healthData } = getHealthData()
 
   return (
     <div className={cx(styles.container)}>
@@ -22,16 +15,16 @@ const HealthAverageChart = () => {
         <p className={styles.message}>
           {message}
           <br />
-          <mark>{diffScore}점 높아요</mark>
+          <mark className={cx({ [styles.lower]: diffScore < 0 }, { [styles.higher]: diffScore > 0 })}>
+            {diffMessage}
+          </mark>
         </p>
 
-        {/* content의 height 50% 배경색 칠하는 것 좋은 방법 고민 */}
         <p className={styles.percent}>{calcPercent}</p>
       </div>
       <VictoryChart height={300}>
         <VictoryAxis style={{ axis: { stroke: 'white' }, tickLabels: { fontSize: 20, ...CHART_STYLE.label } }} />
 
-        {/* data={healthData} VictoryGroup에 data를 넣는 경우 키값이 x,y여야 하는 것 같음 */}
         <VictoryGroup>
           <VictoryBar
             data={healthData}
