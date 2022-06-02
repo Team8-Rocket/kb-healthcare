@@ -1,18 +1,14 @@
 import { VictoryAxis, VictoryBar, VictoryChart, VictoryLabel, VictoryLine, VictoryScatter, VictoryTheme } from 'victory'
 import json from 'assets/json/response.json'
-import { useState } from 'react'
-// mediDy의 마지막 값
-const MEDIDY = json.wxcResultMap.mediDy.replace(/\[|\]/g, '').split(', ')[9] // string
-// medi 값
-const MEDI = json.wxcResultMap.medi // string
+
+const MEDIDY = json.wxcResultMap.mediDy.replace(/\[|\]/g, '').split(', ')[9]
+
+const MEDI = json.wxcResultMap.medi
 
 const data = [
-  // who => indicator 로 통일
   { indicator: '나', cost: Number(MEDI) },
   { indicator: '10년 후', cost: Number(MEDIDY) },
 ]
-const costGap = data[1].cost - data[0].cost
-const plusMinus = Math.sign(costGap)
 
 const PredictionCost = () => {
   return (
