@@ -1,0 +1,14 @@
+@use '/src/styles/constants/colors';
+
+.totalChartwrapper {
+  h3 {
+    font-size: 16px;
+    font-weight: normal;
+    line-height: 22px;
+
+    mark {
+      color: colors.$RED;
+      background-color: transparent;
+    }
+  }
+}

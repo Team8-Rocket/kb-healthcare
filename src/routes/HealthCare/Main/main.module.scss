@@ -1,0 +1,28 @@
+@use '/src/styles/constants/colors';
+
+.userInfo {
+  height: 60px;
+  padding-left: 16px;
+  margin: 10px 0 40px;
+  line-height: 60px;
+  background-color: #fff9d9;
+  border-radius: 10px;
+
+  .infoTitle {
+    display: inline-block;
+    width: 40%;
+    font-size: 14px;
+    color: colors.$GRAYA;
+  }
+
+  .infoWrap {
+    display: inline-block;
+    width: 60%;
+
+    span {
+      margin-right: 13%;
+      font-size: 14px;
+      color: colors.$GRAY6;
+    }
+  }
+}

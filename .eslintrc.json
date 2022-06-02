@@ -1,5 +1,6 @@
 {
   "extends": ["airbnb", "airbnb/hooks", "react-app", "prettier", "plugin:react/recommended", "plugin:prettier/recommended"],
+  "plugins": ["prettier"],
   "env": {
     "browser": true,
     "jasmine": true,
@@ -18,6 +19,7 @@
     }
   },
   "rules": {
+    "prettier/prettier": ["error", { "endOfLine": "auto" }],
     "arrow-body-style": "off",
     "semi": ["warn", "never"],
     "react/function-component-definition": ["warn", { "namedComponents": "arrow-function" }],

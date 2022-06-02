@@ -1,0 +1,18 @@
+@use '/src/styles/constants/colors';
+
+.tagContainer {
+  height: 28px;
+  padding: 0 15px;
+  font-size: 12px;
+  font-weight: bold;
+  line-height: 28px;
+  color: colors.$TAG_TITLE;
+  text-align: center;
+  background-color: colors.$TAG_MAIN;
+  border-radius: 15px;
+
+  & + & {
+    margin-left: 6px;
+    background-color: colors.$TAG_SUB;
+  }
+}
