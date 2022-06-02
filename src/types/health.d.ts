@@ -3,14 +3,14 @@ export interface ITagList {
   tag1: string
   tag2: string
   tag3: string
-}[]
+}
 
 export interface IScoreList {
   SCORE: string
   TYPE_CD: string
   SUBMIT_DATE: string
   CNTNS: string
-}[]
+}
 
 export interface IUserInfo {
   healthScript: string
@@ -29,25 +29,25 @@ export interface IResultMap {
   totalRate: string
   his: string
   contribution: IContribution
-  age: number;
+  age: number
 }
 
 export interface IContribution {
-  bloodPressure: {};
+  bloodPressure: {}
   medical: {
-      resUrinaryProtein: string
-  };
+    resUrinaryProtein: string
+  }
   bloodSugar: {
-      resFastingBloodSuger: string
-  };
+    resFastingBloodSuger: string
+  }
   weight: {
-      resBMI: string;
-  };
+    resBMI: string
+  }
   cholesterol: {
-      resHDLCholesterol: string
-      resTotalCholesterol: string
-      resLDLCholesterol: string
-  };
+    resHDLCholesterol: string
+    resTotalCholesterol: string
+    resLDLCholesterol: string
+  }
   life: ILife
 }
 
