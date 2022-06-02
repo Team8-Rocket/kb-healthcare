@@ -14,6 +14,7 @@ const HealthCare = () => {
       <div className={styles.kbWrap}>
         <Header />
         <Main />
+        <Chart />
         <UserManagement />
       </div>
     </div>
