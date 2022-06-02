@@ -58,6 +58,7 @@ const TotalChart = () => {
           <VictoryGroup data={healthScore}>
             <VictoryBar
               barWidth={35}
+              barRatio={1}
               style={{
                 data: {
                   fill: ({ datum }) => (datum.x === healthScore.at(-1)?.x ? colors.yellow : colors.bar),
@@ -68,8 +69,24 @@ const TotalChart = () => {
                 },
               }}
               labels={({ datum }) => datum.y}
+              animate={{
+                onExit: {
+                  duration: 500,
+
+                  before: () => ({
+                    _y: 0,
+                    fill: 'orange',
+                  }),
+                },
+              }}
             />
-            <VictoryLine style={{ data: { stroke: colors.border, strokeWidth: 2 } }} />
+            <VictoryLine
+              style={{ data: { stroke: colors.border, strokeWidth: 2 } }}
+              animate={{
+                onLoad: { duration: 1000 },
+                duration: 500,
+              }}
+            />
             <VictoryScatter
               size={4}
               style={{
