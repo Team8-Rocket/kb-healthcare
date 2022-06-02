@@ -2,11 +2,6 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { BrowserRouter } from 'react-router-dom'
 
-// Redux & Recoil 사용을 위해 남겨 놓음
-import { Provider } from 'react-redux'
-import { RecoilRoot } from 'recoil'
-import { store } from './states'
-
 import reportWebVitals from './reportWebVitals'
 import './styles/index.scss'
 
@@ -15,13 +10,9 @@ import Routes from './routes'
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
 root.render(
   <React.StrictMode>
-    <Provider store={store}>
-      <RecoilRoot>
-        <BrowserRouter>
-          <Routes />
-        </BrowserRouter>
-      </RecoilRoot>
-    </Provider>
+    <BrowserRouter>
+      <Routes />
+    </BrowserRouter>
   </React.StrictMode>
 )
 

@@ -4,7 +4,7 @@ import styles from './predictionCost.module.scss'
 import cx from 'classnames'
 
 const PredictionCost = () => {
-  const gap = predictionData[0].cost - predictionData[1].cost
+  const gap = predictionData[1].cost - predictionData[0].cost
 
   const costGap = () => {
     if (Math.sign(gap) === -1)
