@@ -55,6 +55,10 @@ const TotalChart = () => {
       </h3>
       <div className={styles.chartWrapper}>
         <VictoryChart domainPadding={20}>
+          <VictoryAxis
+            tickValues={healthScore.map((item) => item.x)}
+            style={{ axis: { display: 'none' }, tickLabels: { fontFamily: 'inherit', fontWeight: 700 } }}
+          />
           <VictoryGroup data={healthScore}>
             <VictoryBar
               barWidth={35}
@@ -66,6 +70,7 @@ const TotalChart = () => {
                 labels: {
                   fill: ({ datum }: CallbackArgs) =>
                     datum.x === healthScore.at(-1)?.x ? colors.active : colors.border,
+                  fontFamily: 'inherit',
                 },
               }}
               labels={({ datum }) => datum.y}
@@ -94,7 +99,6 @@ const TotalChart = () => {
                 },
               }}
             />
-            <VictoryAxis tickValues={healthScore.map((item) => item.x)} />
           </VictoryGroup>
         </VictoryChart>
       </div>

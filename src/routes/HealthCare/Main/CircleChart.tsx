@@ -34,7 +34,6 @@ const CircleChart = () => {
             { x: 2, y: 100 - yPercent, label: ' ' },
           ]}
         />
-
         <p className={styles.score}>
           {USER_INFO.healthScore}
           <span> 점</span>
