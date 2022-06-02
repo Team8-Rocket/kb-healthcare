@@ -9,8 +9,7 @@ const USER = DATA.wxcResultMap.paramMap
 const Main = () => {
   const { sex, age, resHeight } = USER
   return (
-    <div>
-      <CircleChart />
+    <>
       <div className={styles.userInfo}>
         <p className={styles.infoTitle}>기본정보</p>
         <div className={styles.infoWrap}>
@@ -20,7 +19,7 @@ const Main = () => {
         </div>
       </div>
       <TotalChart />
-    </div>
+    </>
   )
 }
 

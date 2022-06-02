@@ -29,7 +29,12 @@ const HealthAverageChart = () => {
         <p className={styles.percent}>{calcPercent}</p>
       </div>
       <VictoryChart height={300}>
-        <VictoryAxis style={{ axis: { stroke: 'white' }, tickLabels: { fontSize: 20, ...CHART_STYLE.label } }} />
+        <VictoryAxis
+          style={{
+            axis: { stroke: 'white' },
+            tickLabels: { fontSize: 20, ...CHART_STYLE.label, fontFamily: 'inherit' },
+          }}
+        />
 
         {/* data={healthData} VictoryGroup에 data를 넣는 경우 키값이 x,y여야 하는 것 같음 */}
         <VictoryGroup>
@@ -45,6 +50,7 @@ const HealthAverageChart = () => {
                 ...CHART_STYLE.label,
                 fill: ({ datum }: CallbackArgs) => setColor(datum, '#49A0FF', '#000000'),
                 fontSize: 20,
+                fontFamily: 'inherit',
               },
             }}
             labels={({ datum }) => `${datum.score}점`}

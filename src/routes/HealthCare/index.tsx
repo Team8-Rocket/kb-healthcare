@@ -3,16 +3,18 @@ import styles from './healthCare.module.scss'
 import Main from './Main'
 import Header from './Header/Header'
 import UserManagement from './UserManagement'
+import CircleChart from './Main/CircleChart'
 
 const HealthCare = () => {
   return (
-    <div>
-      <div className={styles.kbWrap}>
-        <Header />
+    <div className={styles.kbWrap}>
+      <Header />
+      <CircleChart />
+      <main>
         <Main />
         <Chart />
         <UserManagement />
-      </div>
+      </main>
     </div>
   )
 }
