@@ -1,10 +1,10 @@
 import { VictoryAxis, VictoryBar, VictoryChart, VictoryGroup, VictoryLine, VictoryScatter } from 'victory'
 import { CallbackArgs } from 'victory-core'
 
-import styles from './healthAverageChart.module.scss'
-import { cx } from 'styles'
 import { CHART_STYLE } from './chartStyle'
 import { getHealthData, setColor } from 'utils/healthDataConvertor'
+import styles from './healthAverageChart.module.scss'
+import { cx } from 'styles'
 
 const HealthAverageChart = () => {
   const { message, diffScore, diffMessage, calcPercent, healthData } = getHealthData()
@@ -30,9 +30,8 @@ const HealthAverageChart = () => {
           }}
         />
 
-        <VictoryGroup>
+        <VictoryGroup data={healthData} {...CHART_STYLE.value}>
           <VictoryBar
-            data={healthData}
             {...CHART_STYLE.value}
             barWidth={60}
             style={{
@@ -48,9 +47,8 @@ const HealthAverageChart = () => {
             }}
             labels={({ datum }) => `${datum.score}점`}
           />
-          <VictoryLine data={healthData} {...CHART_STYLE.value} />
+          <VictoryLine {...CHART_STYLE.value} />
           <VictoryScatter
-            data={healthData}
             {...CHART_STYLE.value}
             size={6}
             style={{
