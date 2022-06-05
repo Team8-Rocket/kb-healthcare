@@ -1,15 +1,9 @@
 @use '/src/styles/constants/colors';
 
-.comparativeChart {
+.predictionCost {
   display: flex;
   flex-direction: column;
   color: colors.$MAIN_FONT;
-
-  .chartTitle {
-    margin: 20px 0;
-    font-size: 20px;
-    font-weight: 700;
-  }
 
   .description {
     line-height: 1.5;
@@ -25,10 +19,10 @@
   }
 
   .over {
-    color: colors.$BLUE;
+    color: colors.$RED;
   }
 
   .under {
-    color: colors.$RED;
+    color: colors.$BLUE;
   }
 }

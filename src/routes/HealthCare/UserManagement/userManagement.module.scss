@@ -1,1 +1,24 @@
 @use '/src/styles/constants/colors';
+
+.cardSection {
+  max-width: 500px;
+  margin: 0 auto;
+
+  h1 {
+    margin: 20px 0 20px 8px;
+    font-size: 20px;
+    font-weight: 700;
+    color: colors.$MAIN_FONT;
+  }
+
+  .description {
+    margin-left: 8px;
+    line-height: 1.5;
+    color: colors.$MAIN_FONT;
+
+    mark {
+      font-weight: bold;
+      background-color: colors.$WHITE;
+    }
+  }
+}

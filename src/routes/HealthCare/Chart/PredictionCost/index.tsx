@@ -1,56 +1,65 @@
-import { VictoryAxis, VictoryBar, VictoryChart, VictoryLabel, VictoryLine, VictoryScatter, VictoryTheme } from 'victory'
-import json from 'assets/json/response.json'
-
-const MEDIDY = json.wxcResultMap.mediDy.replace(/\[|\]/g, '').split(', ')[9]
-
-const MEDI = json.wxcResultMap.medi
-
-const data = [
-  { indicator: '나', cost: Number(MEDI) },
-  { indicator: '10년 후', cost: Number(MEDIDY) },
-]
+import { VictoryAxis, VictoryBar, VictoryChart, VictoryLine, VictoryScatter } from 'victory'
+import predictionData from './predictionData'
+import styles from './predictionCost.module.scss'
+import cx from 'classnames'
 
 const PredictionCost = () => {
+  const gap = predictionData[1].cost - predictionData[0].cost
+
+  const costGap = () => {
+    if (Math.sign(gap) === -1)
+      return `${(gap * -1).toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ',')}원 적어요`
+    if (Math.sign(gap) === 1) return `${gap.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ',')}원 많아요`
+    return `현재와 같아요`
+  }
+
   return (
-    <section>
-      <h3>
+    <section className={styles.predictionCost}>
+      <h3 className={styles.description}>
         10년 후 예상 의료비는
         <br />
-        현재보다 원 많아요
+        {`현재보다 `}
+        <mark
+          className={cx(
+            styles.highlight,
+            { [styles.over]: Math.sign(gap) === 1 },
+            { [styles.under]: Math.sign(gap) === -1 }
+          )}
+        >
+          {costGap()}
+        </mark>
       </h3>
-      <VictoryChart domainPadding={40} theme={VictoryTheme.material}>
+      <VictoryChart domainPadding={{ x: 50 }}>
         <VictoryAxis
-          tickValues={['나', '10년 후']}
-          style={{ axis: { stroke: '#a4b0be' }, tickLabels: { fontFamily: 'inherit' } }}
-          domain={{ x: [0, 3] }}
+          tickValues={predictionData.map((value) => value.indicator)}
+          style={{ axis: { display: 'none' }, tickLabels: { fontWeight: 700, fontSize: 20, fontFamily: 'inherit' } }}
         />
         <VictoryBar
-          data={data}
+          data={predictionData}
           x='indicator'
           y='cost'
           style={{
-            data: {
-              fill: ({ datum }) => (datum.indicator === '나' ? '#ffa502' : '#a4b0be'),
-            },
+            data: { fill: ({ datum }) => (datum.indicator === '나' ? '#F9D548' : '#EF8A4E') },
+            labels: { fontSize: 18, fontFamily: 'inherit' },
           }}
+          labels={({ datum }) => `${datum.cost.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ',')}원`}
+          barWidth={70}
+          cornerRadius={{ top: 8 }}
         />
-        <VictoryLine
-          data={data}
-          x='indicator'
-          y='cost'
-          labels={({ datum }) => `${datum.cost}`.replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ',')}
-          labelComponent={<VictoryLabel dy={-15} />}
-          style={{ labels: { fontFamily: 'inherit' } }}
-        />
+        <VictoryLine data={predictionData} x='indicator' y='cost' />
         <VictoryScatter
-          data={data}
+          data={predictionData}
           x='indicator'
           y='cost'
           style={{
             data: {
-              fill: '#2f3542',
+              fill: ({ datum }) => (datum.indicator === '나' ? 'pink' : 'gold'),
+              stroke: ({ datum }) => (datum.indicator === '나' ? 'red' : 'orange'),
+              fillOpacity: 0.7,
+              strokeWidth: 2,
             },
           }}
+          size={6}
         />
       </VictoryChart>
     </section>
