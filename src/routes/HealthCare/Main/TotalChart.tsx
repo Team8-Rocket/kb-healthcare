@@ -37,7 +37,6 @@ const TotalChart = () => {
     })
     setHealthScore(data)
   }, [])
-
   useEffect(() => {
     if (healthScore) setScore(healthScore[healthScore.length - 1].y - healthScore[healthScore.length - 2].y)
     if (score > 0) return setMessage(`${score}점 높아졌어요.`)
@@ -73,7 +72,7 @@ const TotalChart = () => {
                   fontFamily: 'inherit',
                 },
               }}
-              labels={({ datum }) => datum.y}
+              labels={({ datum }) => String(Math.round(datum.y))}
               animate={{
                 onExit: {
                   duration: 500,
