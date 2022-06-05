@@ -5,7 +5,7 @@
 
 ## 🔗 프로젝트 배포
 
-### 🔗 [링크추가]
+### 🔗 [링크추가]https://kb-healthcare8.netlify.app/
 
 ## ⚙ 기술 스택
   <img src="https://img.shields.io/badge/TypeScript-v4.4.2-blue"/>
