@@ -69,6 +69,9 @@ $ yarn start
 
 
 ### 3. 카드 컴포넌트 
+NOTICE
+페어프로그래밍 (Live Share 사용) 함께한 명단 : zellytozelly / lumpenop / hsw824
+
 > Card Component
   - UserManagement에 Card 컴포넌트를 만들고 Props로 가공한 JSON의 데이터를 받았습니다.
   - 카드안에 공통적으로 들어가는 태그를 Tag 컴포넌트로 만들어서 재사용 가능하도록 했습니다.
