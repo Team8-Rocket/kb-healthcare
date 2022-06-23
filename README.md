@@ -10,7 +10,6 @@
 ## ⚙ 기술 스택
   <img src="https://img.shields.io/badge/TypeScript-v4.4.2-blue"/>
   <img src="https://img.shields.io/badge/React-v18.1.0-blue"/>
-  <img src="https://img.shields.io/badge/Redux/toolkit-v1.8.1-blue"/>
   <img src="https://img.shields.io/badge/React Router Dom-v6.3.0-blue"/>
 
 ```
